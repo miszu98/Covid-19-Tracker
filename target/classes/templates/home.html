@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>COVID-19 Tracker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+<div class="container">
+    <h1>COVID-19 Tracker application</h1>
+    <p>This application lists the current number of cases reported across the globe</p>
+    <div class="jumbotron">
+        <h1 class="display-4" th:text="${getSumOfCases}"></h1>
+        <p class="lead">Total cases reported as of today</p>
+        <hr class="my-4">
+        <p>
+            <span>Cases reported since previous day:</span>
+            <span th:text="${getSumOfPrevDayCases}"></span>
+        </p>
+    </div>
+
+
+    <table class="table">
+        <tr>
+            <th>State</th>
+            <th>Country</th>
+            <th>Total cases reported</th>
+            <th>Change since last day</th>
+        </tr>
+
+        <tr th:each="stat : ${data}">
+            <td th:text="${stat.getState()}"></td>
+            <td th:text="${stat.getCountry()}"></td>
+            <td th:text="${stat.getLatestTotalCases()}"></td>
+            <td th:text="${stat.getDiffCases()}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>
