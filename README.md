@@ -1,5 +1,5 @@
 # Covid-19 Tracker
-###the application gets the data from the csv file
+### The application gets the data from the csv file
 
 ## Assumptions
 ### The assumptions were to create a web application that would allow:
